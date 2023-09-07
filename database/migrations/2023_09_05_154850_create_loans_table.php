@@ -13,18 +13,18 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('usuario_id');
-            $table->unsignedBigInteger('libro_id');
-            $table->date('fecha_inicio');
-            $table->date('fecha_vencimiento');
-            $table->enum('estado', ['pendiente', 'vencido', 'devuelto'])->default('pendiente');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('book_id');
+            $table->date('start_date');
+            $table->date('expiration _date');
+            $table->enum('status', ['pending', 'expired', 'returned'])->default('pending');
 
-            $table->foreign('usuario_id')->references('id')
+            $table->foreign('user_id')->references('id')
             ->on('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            $table->foreign('libro_id')->references('id')
+            $table->foreign('book_id')->references('id')
             ->on('books')
             ->onUpdate('cascade')
             ->onDelete('cascade');
