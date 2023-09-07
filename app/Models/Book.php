@@ -16,4 +16,9 @@ class Book extends Model
         'year_publication',
         'category',
     ];
+
+    public function loans()
+    {
+        return $this->belongsToMany(Loan::class);
+    }
 }

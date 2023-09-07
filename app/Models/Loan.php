@@ -22,4 +22,14 @@ class Loan extends Model
         'expiration _date' => 'datetime'
     ];
 
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
 }

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Book;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Faker;
 
 
 /**
@@ -24,7 +25,7 @@ class BookFactory extends Factory
             'author' => fake()->name(),
             'isbn' => fake()->randomNumber(8), // Utiliza ISBN-10 ficticios generados aleatoriamente
             'year_publication' => fake()->year(),
-            'category' => fake()->word(),
+            'category' => fake()->randomElement(['Accion', 'Suspenso', 'Amor', 'Comedia'])
         ];
        
     }
