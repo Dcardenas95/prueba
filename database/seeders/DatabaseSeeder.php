@@ -6,7 +6,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Book;
+use App\Models\Loan;
 use App\Models\User;
+use Illuminate\Support\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,12 +17,40 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Book::factory(10)->create();
-        User::factory(10)->create();
+        $books = Book::factory(10)->create();
+        $users = User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $book_ids = $books->pluck('id'); // obtiene una colección de los ids de los libros
+        $user_ids = $users->pluck('id'); // obtiene una colección de los ids de los usuarios
+
+        Loan::create([
+            'start_date' => Carbon::parse('2023-09-07 22:08:54'), 
+            'expiration_date' => Carbon::parse('2023-09-07 22:08:54')->addDays(7),
+            'book_id' => $book_ids->random(), 
+            'user_id' => $user_ids->random(),
+        ]);
+
+        Loan::create([
+            'start_date' => Carbon::parse('2023-08-20 22:08:54'), 
+            'expiration_date' => Carbon::parse('2023-08-20 22:08:54')->addDays(7),
+            'book_id' => $book_ids->random(), 
+            'user_id' => $user_ids->random(),
+        ]);
+
+        Loan::create([
+            'start_date' => Carbon::parse('2023-08-01 22:08:54'), 
+            'expiration_date' => Carbon::parse('2023-08-01 22:08:54')->addDays(7),
+            'book_id' => $book_ids->random(), 
+            'user_id' => $user_ids->random(),
+        ]);
+
+        Loan::create([
+            'start_date' => Carbon::parse('2023-12-09 22:08:54'), 
+            'expiration_date' => Carbon::parse('2023-12-09 22:08:54')->addDays(7),
+            'book_id' => $book_ids->random(), 
+            'user_id' => $user_ids->random(),
+        ]);
+       
+       
     }
 }

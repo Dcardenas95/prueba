@@ -11,7 +11,7 @@ class Loan extends Model
 
     protected $fillable = [
         'start_date',
-        'expiration _date',
+        'expiration_date',
         'status',
         'book_id',
         'user_id',
@@ -19,7 +19,7 @@ class Loan extends Model
 
     protected $casts = [
         'start_date' => 'datetime',
-        'expiration _date' => 'datetime'
+        'expiration_date' => 'datetime'
     ];
 
     public function books()

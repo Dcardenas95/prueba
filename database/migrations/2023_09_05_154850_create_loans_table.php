@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('book_id');
-            $table->date('start_date');
-            $table->date('expiration _date');
+            $table->timestamp('start_date');
+            $table->timestamp('expiration_date');
             $table->enum('status', ['pending', 'expired', 'returned'])->default('pending');
 
             $table->foreign('user_id')->references('id')
