@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UserApiController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::get('/book/user', [UserApiController::class,'getUser']);
+Route::get('/book/user', [UserController::class,'getUser']);
 

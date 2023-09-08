@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('author');
             $table->string('isbn');
-            $table->datetime('year_publication');
+            $table->date('year_publication');
             $table->string('category');
             $table->timestamps();
         });
